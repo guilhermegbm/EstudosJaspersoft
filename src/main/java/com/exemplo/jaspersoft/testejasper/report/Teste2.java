@@ -16,7 +16,7 @@ public class Teste2 {
 	public void gerarRelatorioTeste2() throws Exception {
 
 		Connection con = dataSource.getConnection();
-
-		RelatorioPdfUtil.printReportWithCustomConnection("C:\\Users\\guilh\\Desktop\\reports_gerados\\Teste2.pdf", null, "/relatorios/teste2_exemploAdapter.jasper", con);
+ //		RelatorioPdfUtil.printReportWithCustomConnection("C:\\Users\\guilh\\Desktop\\reports_gerados\\Teste2.pdf", null, "/relatorios/teste2_exemploAdapter.jasper", con);
+		RelatorioPdfUtil.printDecompiledReportWithCustomConnection("C:\\Users\\marry\\Desktop\\reports_gerados\\Teste2.pdf", null, "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\teste2_exemploAdapter.jrxml", con);
 	}
 }

@@ -1,5 +1,6 @@
 package com.exemplo.jaspersoft.testejasper.report;
 
+import java.io.File;
 import java.io.InputStream;
 import java.sql.Connection;
 import java.util.Collection;
@@ -7,6 +8,7 @@ import java.util.Map;
 
 import net.sf.jasperreports.engine.JRDataSource;
 import net.sf.jasperreports.engine.JREmptyDataSource;
+import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -21,6 +23,25 @@ public class RelatorioPdfUtil {
 		try {
 			InputStream jasperStream = RelatorioPdfUtil.class.getResourceAsStream(urlToReport);
 			JasperReport jasperReport = (JasperReport) JRLoader.loadObject(jasperStream);
+			JasperPrint jp = null;
+
+			JRDataSource emptyConnection = new JREmptyDataSource();
+			jp = JasperFillManager.fillReport(jasperReport, parameters, emptyConnection);
+
+			//Se quiser o vetor de bytes, basta retornar o byte[] da linha abaixo:
+			//pdf = JasperExportManager.exportReportToPdf(jp);
+			JasperExportManager.exportReportToPdfFile(jp, urlArquivoDestino);
+		} catch (Exception e) {
+			System.out.println("Erro ao criar report: ");
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
+	public static void printDecompiledReportWithEmptyDataSource (String urlArquivoDestino, Map<String, Object> parameters, String fullUrlToReport) throws Exception {
+
+		try {
+			File file = new File (fullUrlToReport); 
+			JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath()); 
 			JasperPrint jp = null;
 
 			JRDataSource emptyConnection = new JREmptyDataSource();
@@ -59,6 +80,28 @@ public class RelatorioPdfUtil {
 			throw new Exception(e);
 		}
 	}
+	
+	public static void printDecompiledReportWithCustomConnection (String urlArquivoDestino, Map<String, Object> parameters, String fullUrlToReport, Connection con) throws Exception {
+
+		try {
+			File file = new File (fullUrlToReport); 
+			JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath()); 
+			JasperPrint jp = null;
+
+			if (con == null) {
+				throw new NullPointerException("Connection está nula");
+			}
+
+			jp = JasperFillManager.fillReport(jasperReport, parameters, con);
+
+			JasperExportManager.exportReportToPdfFile(jp, urlArquivoDestino);
+		} catch (Exception e) {
+			System.out.println("Erro ao criar report: ");
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
+	
 
 	@SuppressWarnings("rawtypes")
 	public static void printReportWithCustomCollectionDataSource(String urlArquivoDestino, Map<String, Object> parameters, String urlToReport, Collection collection) throws Exception {

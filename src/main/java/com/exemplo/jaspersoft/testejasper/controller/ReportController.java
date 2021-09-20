@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.exemplo.jaspersoft.testejasper.report.Teste1;
 import com.exemplo.jaspersoft.testejasper.report.Teste2;
+import com.exemplo.jaspersoft.testejasper.report.Teste3;
 
 @CrossOrigin
 @RestController
@@ -22,6 +23,10 @@ public class ReportController {
 
 	@Autowired
 	private Teste2 teste2;
+	
+	@Autowired
+	private Teste3 teste3;
+	
 
 	@GetMapping(path = "/teste1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste1() {
@@ -44,4 +49,18 @@ public class ReportController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
 		}
 	}
+	
+	@GetMapping(path = "/teste3", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> teste3() {
+		try {
+			this.teste3.gerarRelatorioTeste3();
+			return new ResponseEntity<Object>("OK", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
+		}
+	}
+	
+	
+	
 }
