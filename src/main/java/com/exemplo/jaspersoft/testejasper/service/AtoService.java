@@ -22,6 +22,8 @@ public class AtoService {
 		return this.atoRepository.findAll();
 	}
 
+
+
 	public void gerarReportListarTodos() throws Exception {
 
 	}

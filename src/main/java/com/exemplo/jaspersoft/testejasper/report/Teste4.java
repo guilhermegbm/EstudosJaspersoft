@@ -9,11 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class Teste3 {
+public class Teste4 {
 	@Autowired
 	private DataSource dataSource;
 	
-	public void gerarRelatorioTeste3(String destino , String origem, Map<String, Object> parameters) throws Exception {
+	public void gerarRelatorioTeste4(String destino , String origem, Map<String, Object> parameters) throws Exception {
 		
 		Connection con = dataSource.getConnection();
 		

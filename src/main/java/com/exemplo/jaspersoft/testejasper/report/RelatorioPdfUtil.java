@@ -29,7 +29,7 @@ public class RelatorioPdfUtil {
 			jp = JasperFillManager.fillReport(jasperReport, parameters, emptyConnection);
 
 			//Se quiser o vetor de bytes, basta retornar o byte[] da linha abaixo:
-			//pdf = JasperExportManager.exportReportToPdf(jp);
+//			pdf = JasperExportManager.exportReportToPdf(jp);
 			JasperExportManager.exportReportToPdfFile(jp, urlArquivoDestino);
 		} catch (Exception e) {
 			System.out.println("Erro ao criar report: ");
@@ -81,7 +81,7 @@ public class RelatorioPdfUtil {
 		}
 	}
 	
-	public static void printDecompiledReportWithCustomConnection (String urlArquivoDestino, Map<String, Object> parameters, String fullUrlToReport, Connection con) throws Exception {
+	public static void printDecompiledReportWithCustomConnection (String urlArquivoDestino,  String fullUrlToReport, Map<String, Object> parameters, Connection con) throws Exception {
 
 		try {
 			File file = new File (fullUrlToReport); 
