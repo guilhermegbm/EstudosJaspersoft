@@ -3,7 +3,9 @@ package com.exemplo.jaspersoft.testejasper.report;
 import java.io.File;
 import java.io.InputStream;
 import java.sql.Connection;
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.Map;
 
 import net.sf.jasperreports.engine.JRDataSource;
@@ -114,6 +116,7 @@ public class RelatorioPdfUtil {
 			if (collection == null) {
 				throw new NullPointerException("Collection está nula");
 			}
+			
 
 			JRBeanCollectionDataSource collectionDataSource = new JRBeanCollectionDataSource(collection);
 
@@ -126,4 +129,31 @@ public class RelatorioPdfUtil {
 			throw new Exception(e);
 		}
 	}
+	
+	@SuppressWarnings("rawtypes")
+	public static void printDecompiledReportWithCustomCollectionDataSource(String urlArquivoDestino, String fullUrlToReport, Map<String, Object> parameters, Collection collection) throws Exception {
+
+		try {
+			File file = new File (fullUrlToReport); 
+			JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath()); 
+			JasperPrint jp = null;
+
+			if (collection == null) {
+				throw new NullPointerException("Collection está nula");
+			}
+			
+
+			JRBeanCollectionDataSource collectionDataSource = new JRBeanCollectionDataSource(collection);
+
+			jp = JasperFillManager.fillReport(jasperReport, parameters, collectionDataSource);
+
+			JasperExportManager.exportReportToPdfFile(jp, urlArquivoDestino);
+		} catch (Exception e) {
+			System.out.println("Erro ao criar report: ");
+			e.printStackTrace();
+			throw new Exception(e);
+		}
+	}
+	
+	
 }
