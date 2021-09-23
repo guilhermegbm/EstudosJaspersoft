@@ -13,7 +13,7 @@ import com.exemplo.jaspersoft.testejasper.entity.Ato;
 public interface AtoRepository extends JpaRepository<Ato, Long> {
 	
 	@Query (value = "FROM Ato a WHERE a.valorFinal >= :valorFinal and a.inicioVigencia = :dataInicioVigencia")
-	List<Ato> findByValorFinalAndInicioVigenciaAndTabela (@Param("valorFinal")BigDecimal valorFinal, @Param("dataInicioVigencia")Date dataInicioVigencia); 
+	List<Ato> findByValorFinalAndInicioVigencia (@Param("valorFinal")BigDecimal valorFinal, @Param("dataInicioVigencia")Date dataInicioVigencia); 
 	
 	
 

@@ -19,6 +19,8 @@ import com.exemplo.jaspersoft.testejasper.report.Teste2;
 import com.exemplo.jaspersoft.testejasper.report.Teste3;
 import com.exemplo.jaspersoft.testejasper.report.Teste4;
 import com.exemplo.jaspersoft.testejasper.report.Teste5;
+import com.exemplo.jaspersoft.testejasper.report.Teste6;
+import com.exemplo.jaspersoft.testejasper.report.Teste7;
 
 @CrossOrigin
 @RestController
@@ -30,16 +32,21 @@ public class ReportController {
 
 	@Autowired
 	private Teste2 teste2;
-	
+
 	@Autowired
 	private Teste3 teste3;
-	
-	@Autowired 
-	private Teste4 teste4;  
-	
+
+	@Autowired
+	private Teste4 teste4;
+
 	@Autowired
 	private Teste5 teste5;
+
+	@Autowired
+	private Teste6 teste6;
 	
+	@Autowired
+	private Teste7 teste7;
 
 	@GetMapping(path = "/teste1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste1() {
@@ -62,66 +69,79 @@ public class ReportController {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
 		}
 	}
-	
+
 	@GetMapping(path = "/teste3", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste3(BigDecimal tfj, Date data, int tabela) {
-		
-		
+
 		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste3.pdf";
 		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste3_exemploLandscapeComParametros.jrxml";
-		Map<String, Object> parametros = new HashMap<String, Object>(); 
-		
-		parametros.put("TFJ", tfj); 
+		Map<String, Object> parametros = new HashMap<String, Object>();
+
+		parametros.put("TFJ", tfj);
 		parametros.put("DATA_INICIO_VIGENCIA", data);
 		parametros.put("TABELA", tabela);
-		
-		// 
+
+		//
 		try {
-			this.teste3.gerarRelatorioTeste3(destino ,origem , parametros);
+			this.teste3.gerarRelatorioTeste3(destino, origem, parametros);
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
 		}
 	}
-	
+
 	@GetMapping(path = "/teste4", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste4(BigDecimal issqn, Date data, int tabela) {
-		
-		
+
 		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste4.pdf";
 		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste4_exemploCompletoTabelaEmolumentos.jrxml";
-		Map<String, Object> parametros = new HashMap<String, Object>(); 
-		
-		parametros.put("ISSQN", issqn); 
+		Map<String, Object> parametros = new HashMap<String, Object>();
+
+		parametros.put("ISSQN", issqn);
 		parametros.put("DATA_INICIO_VIGENCIA", data);
 		parametros.put("TABELA", tabela);
-		
-		// 
+
+		//
 		try {
-			this.teste4.gerarRelatorioTeste4(destino ,origem , parametros);
+			this.teste4.gerarRelatorioTeste4(destino, origem, parametros);
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
 		}
 	}
-	
+
 	@GetMapping(path = "/teste5", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste5(BigDecimal valorFinal, Date dataInicioVigencia) {
-		
-		
+
 		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste5.pdf";
 		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste5_ExemploDataSetCustom.jrxml";
-		
+
 //		Map<String, Object> parametros = new HashMap<String, Object>(); 
 //		parametros.put("ISSQN", issqn); 
 //		parametros.put("DATA_INICIO_VIGENCIA", data);
 //		parametros.put("TABELA", tabela);
-		
-		// 
+
+		//
 		try {
-			this.teste5.gerarRelatorioTeste5(destino ,origem , valorFinal, dataInicioVigencia);
+			this.teste5.gerarRelatorioTeste5(destino, origem, valorFinal, dataInicioVigencia);
+			return new ResponseEntity<Object>("OK", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
+		}
+	}
+
+	@GetMapping(path = "/teste6", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> teste6(BigDecimal valorFinal, Date dataInicioVigencia, BigDecimal issqn, int tabela) {
+
+		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste6.pdf";
+		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste6_exemploCompletoDataSetCustomComImagem.jrxml";
+
+		//
+		try {
+			this.teste6.gerarRelatorioTeste6(destino, origem, valorFinal, dataInicioVigencia, issqn, tabela);
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -129,8 +149,21 @@ public class ReportController {
 		}
 	}
 	
+	@GetMapping(path = "/teste7", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> teste7(BigDecimal valorFinal, Date dataInicioVigencia) {
+
+		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste7.pdf";
+		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste7_exemploSubReport.jrxml";
+
+		//
+		try {
+			this.teste7.gerarRelatorioTeste7(destino, origem, valorFinal, dataInicioVigencia);
+			return new ResponseEntity<Object>("OK", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
+		}
+	}
 	
-	
-	
-	
+
 }

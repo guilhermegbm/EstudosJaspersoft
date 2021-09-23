@@ -18,7 +18,7 @@ public class Teste5 {
 	
 	public void gerarRelatorioTeste5(String destino, String origem, BigDecimal valorFinal, Date dataInicioVigencia) throws Exception {
 
-		List<Ato> l = this.atoRepository.findByValorFinalAndInicioVigenciaAndTabela(valorFinal, dataInicioVigencia); 
+		List<Ato> l = this.atoRepository.findByValorFinalAndInicioVigencia(valorFinal, dataInicioVigencia); 
 		System.out.println(l.size());
 		RelatorioPdfUtil.printDecompiledReportWithCustomCollectionDataSource(destino, origem, null, l);
 		
