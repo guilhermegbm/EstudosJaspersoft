@@ -38,6 +38,7 @@ public class Teste6 {
 		List<Ato> l = this.atoRepository.findByValorFinalAndInicioVigencia(valorFinal, dataInicioVigencia); 
 		System.out.println(l.size());
 		RelatorioPdfUtil.printDecompiledReportWithCustomCollectionDataSource(destino, origem, parametros, l);
+	
 		
 		
 	}
