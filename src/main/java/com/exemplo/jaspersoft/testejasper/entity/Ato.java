@@ -10,11 +10,14 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 @Entity
 @Table(name = "ato", schema = "recompe")
 @Data
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Ato {
 	@Id
 	@Column(name = "id")

@@ -8,6 +8,8 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import lombok.Data;
 
 
@@ -18,6 +20,7 @@ import lombok.Data;
 @Entity
 @Table(name = "banco", schema = "recompe")
 @SequenceGenerator(name = "seq_id_banco", sequenceName = "seq_id_banco", schema = "recompe", allocationSize = 1)
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class Banco {
 
 	@Id
