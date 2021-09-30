@@ -21,6 +21,7 @@ import com.exemplo.jaspersoft.testejasper.report.Teste4;
 import com.exemplo.jaspersoft.testejasper.report.Teste5;
 import com.exemplo.jaspersoft.testejasper.report.Teste6;
 import com.exemplo.jaspersoft.testejasper.report.Teste7;
+import com.exemplo.jaspersoft.testejasper.report.Teste8;
 
 @CrossOrigin
 @RestController
@@ -47,6 +48,9 @@ public class ReportController {
 	
 	@Autowired
 	private Teste7 teste7;
+	
+	@Autowired
+	private Teste8 teste8;
 
 	@GetMapping(path = "/teste1", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste1() {
@@ -158,6 +162,22 @@ public class ReportController {
 		//
 		try {
 			this.teste7.gerarRelatorioTeste7(destino, origem, valorFinal, dataInicioVigencia);
+			return new ResponseEntity<Object>("OK", HttpStatus.OK);
+		} catch (Exception e) {
+			e.printStackTrace();
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
+		}
+	}
+	
+	@GetMapping(path = "/teste8", produces = MediaType.APPLICATION_JSON_VALUE)
+	public ResponseEntity<Object> teste8(BigDecimal valorFinal, Date dataInicioVigencia) {
+
+		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste8.pdf";
+		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste8_exemploRepassandoParametroParaSubReport.jrxml";
+
+		//
+		try {
+			this.teste8.gerarRelatorioTeste8(destino, origem, valorFinal, dataInicioVigencia);
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
