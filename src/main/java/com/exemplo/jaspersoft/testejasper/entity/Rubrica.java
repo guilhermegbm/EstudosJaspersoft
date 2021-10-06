@@ -16,7 +16,6 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -52,31 +51,33 @@ public class Rubrica {
 	@Column(name = "documentos_necessarios", nullable = true)
 	private String documentosNecessarios;
 
-	//O usuário pode editar a qtde solicitada dessa rubrica
+	// O usuário pode editar a qtde solicitada dessa rubrica
 	@Column(name = "quantidade_editavel", nullable = false)
 	private boolean quantidadeEditavel;
 
-	//Mesmo que a mesma pessoa (CPF) tenha vários cartórios, essa rubrica será contabilizada em apenas um cartório
+	// Mesmo que a mesma pessoa (CPF) tenha vários cartórios, essa rubrica será
+	// contabilizada em apenas um cartório
 	@Column(name = "unica_por_cpf", nullable = false)
 	private boolean unicaPorCpf;
 
-	//Essa rubrica só pode ser contabilizada em Cartórios Sede
+	// Essa rubrica só pode ser contabilizada em Cartórios Sede
 	@Column(name = "somente_sede", nullable = false)
 	private boolean somenteSede;
 
-	//Dividir o valor dessa rubrica para mais de um oficial (quando um sai e outro entra no meio do mês)
+	// Dividir o valor dessa rubrica para mais de um oficial (quando um sai e outro
+	// entra no meio do mês)
 	@Column(name = "divide_mais_um_pagamento", nullable = false)
 	private boolean divideMaisUmPagamento;
 
-	//Rubrica com Termo, Livro e Folha
+	// Rubrica com Termo, Livro e Folha
 	@Column(name = "com_termo_livro_folha", nullable = false)
-	private boolean comTermoLivroFolha; //TODO: Remover, quando possível
+	private boolean comTermoLivroFolha; // TODO: Remover, quando possível
 
-	//Rubrica com cálculo para Fechamentos de Unidade Interligada
+	// Rubrica com cálculo para Fechamentos de Unidade Interligada
 	@Column(name = "unidade_interligada", nullable = false)
 	private boolean unidadeInterligada;
 
-	//Rubrica com cálculo para determinado tipo de Cartório
+	// Rubrica com cálculo para determinado tipo de Cartório
 	@Column(name = "registro_civil", nullable = false)
 	private boolean registroCivil;
 
@@ -101,11 +102,11 @@ public class Rubrica {
 	@Column(name = "adicionada_na_complementacao", nullable = false)
 	private boolean adicionadaNaComplementacao;
 
-	//Rubrica com cálculo para determinado ato
+	// Rubrica com cálculo para determinado ato
 	@Column(name = "codigo_ato", nullable = true)
 	private String codigoAto;
 
-	//Quantidade padrão dessa rubrica
+	// Quantidade padrão dessa rubrica
 	@Column(name = "quantidade_padrao", nullable = false)
 	private int quantidadePadrao;
 
@@ -117,7 +118,6 @@ public class Rubrica {
 	@Temporal(TemporalType.DATE)
 	private Date dataFim;
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "rubrica", fetch = FetchType.LAZY)
 	private List<FechamentoRubrica> fechamentoRubrica;
 }

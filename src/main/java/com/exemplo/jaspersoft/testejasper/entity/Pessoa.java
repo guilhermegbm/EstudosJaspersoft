@@ -51,7 +51,6 @@ public class Pessoa {
 	@Column(name = "rg")
 	private String rg;
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "pessoa", fetch = FetchType.LAZY)
 	private List<Oficial> oficiais;
 

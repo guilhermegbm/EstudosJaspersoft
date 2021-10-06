@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.17.0.final using JasperReports Library version 6.5.1  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Teste9_RelatorioExtratoOnline" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a0ca5406-b643-45ee-8605-934056bc8446">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="VO_TESTE" class="java.lang.Object"/>
+	<parameter name="USUARIO_INTERNO" class="java.lang.Boolean"/>
+	<parameter name="VALORES_PESSOA_DATA_NASCIMENTO" class="java.util.Date"/>
+	<parameter name="VALORES_PESSOA_NATURALIDADE_MUNICIPIO" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_DATA_FIM" class="java.util.Date"/>
+	<parameter name="VALORES_PESSOA_NATURALIDADE_UF" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_PAI_NAO_DECLARADO" class="java.lang.Boolean"/>
+	<parameter name="VALORES_PESSOA_MES_NOME" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_MES_RG_UF_ORGAO_EXPEDIDOR" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_MES_CPF" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_FILIAÇÂO_NOME_PAI" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_FILIAÇÂO_NOME_MAE" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_MES_RG" class="java.lang.String"/>
+	<parameter name="VALORES_PESSOA_MES_CARTEIRA_FUNCIONAL" class="java.lang.Boolean"/>
+	<parameter name="VALORES_PESSOA_MES_RG_ORGAO_EXPEDIDOR" class="java.lang.String"/>
+	<parameter name="EXTRATO_MENSAL_VALOR_RECEBIDO" class="java.math.BigDecimal"/>
+	<parameter name="EXTRATO_MENSAL_VALOR_IR" class="java.math.BigDecimal"/>
+	<parameter name="EXTRATO_MENSAL_VALOR_UNIMED" class="java.math.BigDecimal"/>
+	<parameter name="EXTRATO_MENSAL_CPF" class="java.lang.String"/>
+	<parameter name="EXTRATO_MENSAL_MES_PAGAMENTO" class="java.util.Date"/>
+	<parameter name="EXTRATO_MENSAL_VALOR_BRUTO_MENSAL" class="java.math.BigDecimal"/>
+	<parameter name="EXTRATO_MENSAL_VALOR_RECIVIL" class="java.math.BigDecimal"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="60" y="0" width="352" height="30" uuid="bb5d2870-d8d2-4562-b86d-ec3ddce1a8a5"/>
+				<text><![CDATA[Extrato online de repasse efetuado]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="51" height="30" uuid="a572d95a-7741-44b2-99d5-7283c8687fc4"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_DATA_NASCIMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="51" y="0" width="42" height="30" uuid="d9f1e72b-673c-4471-91b3-83f9f93cf8b1"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_NATURALIDADE_MUNICIPIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="93" y="0" width="42" height="30" uuid="664097d7-b1be-430e-a7ef-6e8bd05e5da3"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_DATA_FIM}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="135" y="0" width="42" height="30" uuid="3b4de2c7-f393-4dbd-8b9d-126624537300"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_NATURALIDADE_UF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="177" y="0" width="42" height="30" uuid="7153e754-0004-41f0-a5e3-f9bc80ea2138"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_PAI_NAO_DECLARADO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="0" width="42" height="30" uuid="4a1aeeec-ed5a-4093-aac6-9a86521b6645"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_MES_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="261" y="0" width="42" height="30" uuid="3a3ad217-ebd7-404f-b2a6-232d5b2a814e"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_MES_RG_UF_ORGAO_EXPEDIDOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="303" y="0" width="42" height="30" uuid="5b1e1f06-a05e-483e-9a18-affb6d5382ff"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_MES_CPF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="345" y="0" width="42" height="30" uuid="20f35f6c-624e-4112-b944-3dcaadf2ab33"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_FILIAÇÂO_NOME_PAI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="387" y="0" width="42" height="30" uuid="bb9edb88-5e05-403f-956a-61dcae777836"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_FILIAÇÂO_NOME_MAE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="429" y="0" width="42" height="30" uuid="9f60c4ad-bcd7-4267-9864-b4e0387a5e14"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_MES_RG}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="0" width="42" height="30" uuid="c0805334-8833-4840-9738-913f08673e22"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_MES_CARTEIRA_FUNCIONAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="0" width="42" height="30" uuid="9ae6162d-e684-41ee-b7a4-ae607bd53aa2"/>
+				<textFieldExpression><![CDATA[$P{VALORES_PESSOA_MES_RG_ORGAO_EXPEDIDOR}]]></textFieldExpression>
+			</textField>
+		</band>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="81" height="30" uuid="0222ec0f-829b-4df1-920f-1d640be7c57c"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_VALOR_RECEBIDO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="81" y="0" width="79" height="30" uuid="3eafbe4d-ce1e-4125-8324-6d685f7e276e"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_VALOR_IR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="160" y="0" width="79" height="30" uuid="0a6c0d59-bc92-4ad0-be18-496628601bf6"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_VALOR_UNIMED}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="0" width="79" height="30" uuid="2947b304-2624-4717-9e60-ab65360bf285"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_CPF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="318" y="0" width="79" height="30" uuid="c18fec64-a24c-4cf9-888d-d4abf54af989"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_MES_PAGAMENTO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="397" y="0" width="79" height="30" uuid="c91afc65-644b-464c-a5ee-fefa4fab589c"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_VALOR_BRUTO_MENSAL}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="476" y="0" width="79" height="30" uuid="9446900b-bab2-4378-acb0-71e1c9a09298"/>
+				<textFieldExpression><![CDATA[$P{EXTRATO_MENSAL_VALOR_RECIVIL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

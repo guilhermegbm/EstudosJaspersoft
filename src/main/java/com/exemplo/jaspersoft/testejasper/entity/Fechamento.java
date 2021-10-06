@@ -24,7 +24,6 @@ import javax.persistence.Transient;
 import com.exemplo.jaspersoft.testejasper.enums.EnumAutor;
 import com.exemplo.jaspersoft.testejasper.enums.EnumSituacaoFechamento;
 import com.exemplo.jaspersoft.testejasper.enums.EnumTipoFechamento;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -109,8 +108,7 @@ public class Fechamento {
 	@Column(name = "motivo_bloqueio")
 	private String motivoBloqueio;
 
-	@JsonIgnore
-	@OneToMany(mappedBy = "fechamento", fetch = FetchType.EAGER) //TODO URGENTE: Trocar para 'FetchType.LAZY'
+	@OneToMany(mappedBy = "fechamento", fetch = FetchType.EAGER) // TODO URGENTE: Trocar para 'FetchType.LAZY'
 	private List<FechamentoRubrica> fechamentosRubrica;
 
 	@Column(name = "data_fim")
@@ -133,19 +131,19 @@ public class Fechamento {
 	@Column(name = "motivo_nao_processamento", nullable = true)
 	private String motivoNaoProcessamento;
 
-	//TODO: Parcialmente inútil. Era usado apenas para uma simples validação
+	// TODO: Parcialmente inútil. Era usado apenas para uma simples validação
 	@Column(name = "valor_emolumento_bruto_pelo_oficial", nullable = true)
 	private BigDecimal valorEmolumentoBrutoPeloOficial;
 
-	//TODO: Parcialmente inútil. Era usado apenas para uma simples validação
+	// TODO: Parcialmente inútil. Era usado apenas para uma simples validação
 	@Column(name = "valor_emolumento_bruto_pelo_cpf", nullable = true)
 	private BigDecimal valorEmolumentoBrutoPeloCpf;
 
-	//TODO: Parcialmente inútil. Era usado apenas para uma simples validação
+	// TODO: Parcialmente inútil. Era usado apenas para uma simples validação
 	@Column(name = "valor_teto_complementacao_renda", nullable = true)
 	private BigDecimal valorTetoComplementacaoRenda;
 
-	//TODO: Parcialmente inútil. Era usado apenas para uma simples validação
+	// TODO: Parcialmente inútil. Era usado apenas para uma simples validação
 	@Column(name = "valor_somatorio_rubricas_complementacao_renda", nullable = true)
 	private BigDecimal valorSomatorioRubricasComplementacaoRenda;
 

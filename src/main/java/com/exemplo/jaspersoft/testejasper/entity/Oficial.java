@@ -26,7 +26,6 @@ import com.exemplo.jaspersoft.testejasper.enums.EnumTipoBloqueioOficial;
 import com.exemplo.jaspersoft.testejasper.enums.EnumTipoConta;
 import com.exemplo.jaspersoft.testejasper.enums.EnumTipoOficial;
 import com.exemplo.jaspersoft.testejasper.enums.EnumTipoPessoa;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.Data;
@@ -135,15 +134,20 @@ public class Oficial {
 	@Enumerated(EnumType.STRING)
 	private EnumTipoBloqueioOficial tipoBloqueio;
 
-	/*@JsonIgnore
-	@OneToMany(mappedBy = "oficial", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
-	private List<Dap> daps;*/
+	/*
+	 * @JsonIgnore
+	 * 
+	 * @OneToMany(mappedBy = "oficial", cascade = CascadeType.REMOVE, fetch =
+	 * FetchType.LAZY) private List<Dap> daps;
+	 */
 
-	/*@JsonIgnore
-	@OneToMany(mappedBy = "oficial", fetch = FetchType.LAZY)
-	private List<BorderoOficial> borderosOficiais;*/
+	/*
+	 * @JsonIgnore
+	 * 
+	 * @OneToMany(mappedBy = "oficial", fetch = FetchType.LAZY) private
+	 * List<BorderoOficial> borderosOficiais;
+	 */
 
-	@JsonIgnore
 	@OneToMany(mappedBy = "oficial", cascade = CascadeType.REMOVE, fetch = FetchType.LAZY)
 	private List<Fechamento> fechamentos;
 
