@@ -11,29 +11,27 @@ import com.exemplo.jaspersoft.testejasper.vo.RelatorioExtratoOnlineVO;
 
 @Service
 public class RelatorioExtratoOnlineService {
-	@Autowired 
+	@Autowired
 	private Teste9RelatorioExtratoOnlineReport teste9RelatorioExtratoOnlineReport;
+//	@Autowired
+//	private OficialRepository oficialRepository;
+//	@Autowired
+//	private CartorioRepository cartorioRepository;
 
 	public ResponseEntity<Object> gerarRelatorioExtratoOnline(RelatorioExtratoOnlineVO valores) {
 
-		
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste9_RelatorioExtratoOnline.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste9_RelatorioExtratoOnline.jrxml";
-		
 		try {
-			ExtratoMensal em =  valores.getExtratoMensal();
+			ExtratoMensal em = valores.getExtratoMensal();
 			System.out.println(em.getId());
-			this.teste9RelatorioExtratoOnlineReport.gerarRelatorioExtratoOnline(destino, origem, valores);
-			
+			this.teste9RelatorioExtratoOnlineReport.gerarRelatorioExtratoOnline(valores);
+
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
-			
+
 		} catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
 		}
-
-		
-		
 	}
+
 
 }

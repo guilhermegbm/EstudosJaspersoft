@@ -41,7 +41,7 @@ public class Teste8 {
 		parametros.put("VALOR_FINAL", new BigDecimal(1234));
 		parametros.put("DATA_INICIO_VIGENCIA", dataInicioVigencia);
 
-		RelatorioPdfUtil.printDecompiledReportWithEmptyDataSource(destino, parametros, origem);
+		RelatorioPdfUtil.printDecompiledReportWithEmptyDataSource(destino, origem, parametros);
 	}
 
 }

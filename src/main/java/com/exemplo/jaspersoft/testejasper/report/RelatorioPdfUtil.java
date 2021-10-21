@@ -39,7 +39,7 @@ public class RelatorioPdfUtil {
 			throw new Exception(e);
 		}
 	}
-	public static void printDecompiledReportWithEmptyDataSource (String urlArquivoDestino, Map<String, Object> parameters, String fullUrlToReport) throws Exception {
+	public static void printDecompiledReportWithEmptyDataSource (String urlArquivoDestino, String fullUrlToReport, Map<String, Object> parameters) throws Exception {
 
 		try {
 			File file = new File (fullUrlToReport); 

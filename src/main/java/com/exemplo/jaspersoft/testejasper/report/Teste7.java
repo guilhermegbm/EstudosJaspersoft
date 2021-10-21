@@ -1,7 +1,6 @@
 package com.exemplo.jaspersoft.testejasper.report;
 
 import java.io.File;
-import java.io.IOException;
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.HashMap;
@@ -9,7 +8,6 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ResourceLoader;
 import org.springframework.stereotype.Component;
 
 import com.exemplo.jaspersoft.testejasper.entity.Ato;
@@ -30,13 +28,13 @@ public class Teste7 {
 	@Autowired
 	private BancoService bancoService;
 	
-	@Autowired
-	private ResourceLoader resourceLoader;
+
 
 	public void gerarRelatorioTeste7(String destino, String origem, BigDecimal valorFinal, Date dataInicioVigencia) throws Exception {
 		
 		Map<String, Object> parametros = new HashMap<String, Object>(); 
 
+		
 		
 		List<Ato> l = this.atoRepository.findByValorFinalAndInicioVigencia(valorFinal, dataInicioVigencia); 
 		System.out.println(l.size());
@@ -61,7 +59,7 @@ public class Teste7 {
 		parametros.put("LISTA_BANCOS", new JRBeanCollectionDataSource(lb));
 		
 		
-		RelatorioPdfUtil.printDecompiledReportWithEmptyDataSource(destino, parametros, origem);
+		RelatorioPdfUtil.printDecompiledReportWithEmptyDataSource(destino, origem, parametros);
 	}
 }
 	
