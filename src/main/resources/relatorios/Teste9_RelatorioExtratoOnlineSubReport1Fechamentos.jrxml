@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Teste9_RelatorioExtratoOnlineSubReport1Fechamentos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f68eef5a-51db-485f-aeca-681dec6e6b95">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<parameter name="FECHAMENTO_RUBRICA" class="net.sf.jasperreports.engine.JRDataSource"/>
+	<parameter name="SUB_REPORT_2_FECHAMENTOS_RUBRICA" class="net.sf.jasperreports.engine.JasperReport"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="oficial.cartorio.nome" class="java.lang.String"/>
+	<field name="oficial.cartorio.municipio" class="java.lang.String"/>
+	<field name="oficial.tipoOficial" class="java.lang.String"/>
+	<field name="valorBruto" class="java.math.BigDecimal"/>
+	<field name="valorLiquido" class="java.math.BigDecimal"/>
+	<field name="valorRecivil" class="java.math.BigDecimal"/>
+	<field name="valorIR" class="java.math.BigDecimal"/>
+	<field name="periodoReferencia" class="java.lang.String"/>
+	<title>
+		<band height="60">
+			<textField>
+				<reportElement mode="Opaque" x="300" y="20" width="254" height="20" backcolor="#FFD900" uuid="92697fe4-d77a-4fbc-bee4-003d2c3959bc">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0df53e9-402e-4375-8541-3850acbc6ef4"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{oficial.cartorio.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="300" y="0" width="254" height="20" backcolor="#FFD900" uuid="862747db-80eb-4964-a037-4f7339cdeeb1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56e3fda8-87f0-4aaf-8f33-2247a98df7db"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{oficial.cartorio.municipio}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="300" y="40" width="254" height="20" backcolor="#FFD900" uuid="4c37c587-2434-4756-9716-15f77d73dd81">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf98b9d7-dfac-4d69-a7fe-8de3381bac71"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{oficial.tipoOficial}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="220" height="30" forecolor="#030303" backcolor="#FFD900" uuid="f2451314-c793-44d9-8c7a-247ca6c8dc10">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="28bd970d-130a-4ebc-8049-85e5f77500fd"/>
+				</reportElement>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Compensação de Gratuidade 
+Periodo de Referência:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="0" width="80" height="20" backcolor="#FFD900" uuid="6890307a-9b28-432f-a699-082be2716cc0">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56e3fda8-87f0-4aaf-8f33-2247a98df7db"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Municipio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="20" width="80" height="20" backcolor="#FFD900" uuid="376de623-617a-4256-b0e9-4553b487a6b4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0df53e9-402e-4375-8541-3850acbc6ef4"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cartorio:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="220" y="40" width="80" height="20" backcolor="#FFD900" uuid="3a979dfd-723f-43b9-8dd2-133f8ee7a284">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf98b9d7-dfac-4d69-a7fe-8de3381bac71"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo Oficial:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="209" splitType="Stretch">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+			<staticText>
+				<reportElement mode="Opaque" x="10" y="150" width="60" height="30" backcolor="#FFD900" uuid="be736d0e-5fb1-4890-988e-f00531770ad7">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20e065c6-94d6-4639-af04-76ca1107b3b6"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Valor Bruto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="70" y="150" width="80" height="30" backcolor="#FFD900" uuid="31185c17-fa93-4b11-aaec-0b452494fe10">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20e065c6-94d6-4639-af04-76ca1107b3b6"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["R$" + $F{valorBruto}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="150" y="150" width="60" height="30" backcolor="#FFD900" uuid="63a76da2-5e72-470f-89b0-46d7317b3d76">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="763723c8-88e1-4e7a-8208-39aad9639cde"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Valor Recivil:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="210" y="150" width="80" height="30" backcolor="#FFD900" uuid="278cebf8-e933-40d4-b3c0-16a6179d95e1">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="763723c8-88e1-4e7a-8208-39aad9639cde"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["R$" + $F{valorRecivil}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="290" y="150" width="60" height="30" backcolor="#FFD900" uuid="6ea9a0f0-b4dd-4370-89ff-9bb0833fbfcd">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3261a433-50d0-4416-96a2-dd9b04b7bcf9"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Valor IR: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="350" y="150" width="80" height="30" backcolor="#FFD900" uuid="5550932e-c4c9-4ef2-a150-ca8b21e129a4">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3261a433-50d0-4416-96a2-dd9b04b7bcf9"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["R$" + $F{valorIR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="430" y="150" width="60" height="30" backcolor="#FFD900" uuid="029f0527-83f0-4ccc-b502-c48d55d30fb6">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f097ef4d-341b-42af-860a-a86a408fd6d2"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<text><![CDATA[Valor Liquido:]]></text>
+			</staticText>
+			<textField>
+				<reportElement mode="Opaque" x="490" y="150" width="74" height="30" backcolor="#FFD900" uuid="7608add9-3a49-468d-97c9-891186251796">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f097ef4d-341b-42af-860a-a86a408fd6d2"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textFieldExpression><![CDATA["R$" + $F{valorLiquido}]]></textFieldExpression>
+			</textField>
+			<subreport>
+				<reportElement x="0" y="0" width="518" height="110" uuid="1d0b0b95-d8a0-4112-97e0-d70854118bd5"/>
+				<dataSourceExpression><![CDATA[$P{FECHAMENTO_RUBRICA}]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUB_REPORT_2_FECHAMENTOS_RUBRICA}]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<summary>
+		<band height="30">
+			<property name="com.jaspersoft.studio.unit.height" value="px"/>
+		</band>
+	</summary>
+</jasperReport>

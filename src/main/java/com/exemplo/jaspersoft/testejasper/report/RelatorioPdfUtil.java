@@ -106,7 +106,7 @@ public class RelatorioPdfUtil {
 	
 
 	@SuppressWarnings("rawtypes")
-	public static void printReportWithCustomCollectionDataSource(String urlArquivoDestino, Map<String, Object> parameters, String urlToReport, Collection collection) throws Exception {
+	public static void printReportWithCustomCollectionDataSource(String urlArquivoDestino,  String urlToReport, Map<String, Object> parameters, Collection collection) throws Exception {
 
 		try {
 			InputStream jasperStream = RelatorioPdfUtil.class.getResourceAsStream(urlToReport);
