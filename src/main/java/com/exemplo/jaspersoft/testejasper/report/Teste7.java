@@ -11,9 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import com.exemplo.jaspersoft.testejasper.entity.Ato;
-import com.exemplo.jaspersoft.testejasper.entity.Banco;
 import com.exemplo.jaspersoft.testejasper.repository.AtoRepository;
-import com.exemplo.jaspersoft.testejasper.service.BancoService;
+
 
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
@@ -25,8 +24,7 @@ public class Teste7 {
 	@Autowired
 	private AtoRepository atoRepository; 
 	
-	@Autowired
-	private BancoService bancoService;
+
 	
 
 
@@ -39,11 +37,11 @@ public class Teste7 {
 		List<Ato> l = this.atoRepository.findByValorFinalAndInicioVigencia(valorFinal, dataInicioVigencia); 
 		System.out.println(l.size());
 		
-		List<Banco> lb = this.bancoService.listarTodos();
-		System.out.println(lb.size());
+//		List<Banco> lb = this.bancoService.listarTodos();
+//		System.out.println(lb.size());
 		
-		String pathSubReport1 = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste7_SubReport1.jrxml";
-		String pathSubReport2 = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste7_SubReport2.jrxml"; 
+		String pathSubReport1 = "C:\\Users\\mariana\\Documents\\apisBk\\testejasper\\src\\main\\resources\\relatorios\\Teste7_SubReport1.jrxml";
+		String pathSubReport2 = "C:\\Users\\mariana\\Documents\\apisBk\\testejasper\\src\\main\\resources\\relatorios\\Teste7_SubReport2.jrxml"; 
 		
 		File fileSubReport1 = new File (pathSubReport1); 
 		File fileSubReport2 = new File (pathSubReport2); 
@@ -56,7 +54,7 @@ public class Teste7 {
 		parametros.put("SUB_REPORT_2", jasperSubReport2);
 
 		parametros.put("LISTA_ATOS", new JRBeanCollectionDataSource(l));
-		parametros.put("LISTA_BANCOS", new JRBeanCollectionDataSource(lb));
+		parametros.put("LISTA_BANCOS", new JRBeanCollectionDataSource(l));
 		
 		
 		RelatorioPdfUtil.printDecompiledReportWithEmptyDataSource(destino, origem, parametros);

@@ -77,8 +77,8 @@ public class ReportController {
 	@GetMapping(path = "/teste3", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste3(BigDecimal tfj, Date data, int tabela) {
 
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste3.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste3_exemploLandscapeComParametros.jrxml";
+		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste3.pdf";
+		String origem = "C:\\Users\\mariana\\Documents\\apisbk\\testejasper\\src\\main\\resources\\relatorios\\Teste3_exemploLandscapeComParametros.jrxml";
 		Map<String, Object> parametros = new HashMap<String, Object>();
 
 		parametros.put("TFJ", tfj);
@@ -91,15 +91,15 @@ public class ReportController {
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Erro não tratado: " + e.getMessage()); 
 		}
 	}
 
 	@GetMapping(path = "/teste4", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste4(BigDecimal issqn, Date data, int tabela) {
 
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste4.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste4_exemploCompletoTabelaEmolumentos.jrxml";
+		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste4.pdf";
+		String origem = "C:\\Users\\mariana\\Documents\\apisbk\\testejasper\\src\\main\\resources\\relatorios\\Teste4_exemploCompletoTabelaEmolumentos.jrxml";
 		Map<String, Object> parametros = new HashMap<String, Object>();
 
 		parametros.put("ISSQN", issqn);
@@ -119,8 +119,8 @@ public class ReportController {
 	@GetMapping(path = "/teste5", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste5(BigDecimal valorFinal, Date dataInicioVigencia) {
 
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste5.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste5_ExemploDataSetCustom.jrxml";
+		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste5.pdf";
+		String origem = "C:\\Users\\mariana\\Documents\\apisbk\\testejasper\\src\\main\\resources\\relatorios\\Teste5_ExemploDataSetCustom.jrxml";
 
 //		Map<String, Object> parametros = new HashMap<String, Object>(); 
 //		parametros.put("ISSQN", issqn); 
@@ -140,8 +140,8 @@ public class ReportController {
 	@GetMapping(path = "/teste6", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste6(BigDecimal valorFinal, Date dataInicioVigencia, BigDecimal issqn, int tabela) {
 
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste6.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste6_exemploCompletoDataSetCustomComImagem.jrxml";
+		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste6.pdf";
+		String origem = "C:\\Users\\mariana\\Documents\\apisBk\\testejasper\\src\\main\\resources\\relatorios\\Teste6_exemploCompletoDataSetCustomComImagem.jrxml";
 
 		//
 		try {
@@ -156,8 +156,8 @@ public class ReportController {
 	@GetMapping(path = "/teste7", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste7(BigDecimal valorFinal, Date dataInicioVigencia) {
 
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste7.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste7_exemploSubReport.jrxml";
+		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste7.pdf";
+		String origem = "C:\\Users\\mariana\\Documents\\apisbk\\testejasper\\src\\main\\resources\\relatorios\\Teste7_exemploSubReport.jrxml";
 
 		//
 		try {
@@ -172,8 +172,8 @@ public class ReportController {
 	@GetMapping(path = "/teste8", produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> teste8(BigDecimal valorFinal, Date dataInicioVigencia) {
 
-		String destino = "C:\\Users\\marry\\Desktop\\reports_gerados\\Teste8.pdf";
-		String origem = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste8_exemploRepassandoParametroParaSubReport.jrxml";
+		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste8.pdf";
+		String origem = "C:\\Users\\mariana\\Documents\\apisbk\\testejasper\\src\\main\\resources\\relatorios\\Teste8_exemploRepassandoParametroParaSubReport.jrxml";
 
 		//
 		try {

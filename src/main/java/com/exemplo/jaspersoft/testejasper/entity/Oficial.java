@@ -101,9 +101,9 @@ public class Oficial {
 	@Column(name = "nome_titular_conta", nullable = true)
 	private String nomeTitularConta;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JoinColumn(name = "banco_conta", nullable = true)
-	private Banco bancoConta;
+//	@ManyToOne(fetch = FetchType.EAGER)
+//	@JoinColumn(name = "banco_conta", nullable = true)
+//	private Banco bancoConta;
 
 	@Column(name = "agencia", nullable = true)
 	private String agencia;

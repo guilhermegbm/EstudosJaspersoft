@@ -30,7 +30,7 @@ public class Teste8 {
 		List<Ato> l = this.atoRepository.findByValorFinalAndInicioVigencia(valorFinal, dataInicioVigencia);
 		System.out.println(l.size());
 
-		String pathSubReport1 = "C:\\Users\\marry\\Documents\\apis\\testejasper\\src\\main\\resources\\relatorios\\Teste8_SubReport1.jrxml";
+		String pathSubReport1 = "C:\\Users\\mariana\\Documents\\apisBk\\testejasper\\src\\main\\resources\\relatorios\\Teste8_SubReport1.jrxml";
 
 		File fileSubReport1 = new File(pathSubReport1);
 

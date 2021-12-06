@@ -40,7 +40,7 @@ dependencies {
 	//----------------------------------------------------------------
 	//Dependências necessárias para gerar os reports. Note que a 'version' deve 
 	//ser a mesma em que os reports foram implementados e compilados
-	implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.5.1'
+	implementation group: 'net.sf.jasperreports', name: 'jasperreports', version: '6.11.0'
 	//Se não exportarmos manualmente a dependência a seguir, a seguinte exceção será lançada:
 	//java.lang.ClassNotFoundException: com.lowagie.text.DocumentException
 	implementation group: 'com.lowagie', name: 'itext', version: '2.1.7'
