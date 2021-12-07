@@ -59,6 +59,10 @@ public class FechamentoRubrica {
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "id_cartorio_ui", nullable = true)
 	private Cartorio cartorioUI;
+	
+	@ManyToOne(fetch = FetchType.EAGER)
+	@JoinColumn(name = "id_oficial_ui", nullable = true)
+	private Oficial oficialUI;
 
 	@Column(name = "nome_maternidade", nullable = true)
 	private String nomeMaternidade;

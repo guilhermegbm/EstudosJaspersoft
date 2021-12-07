@@ -146,5 +146,14 @@ public class Fechamento {
 	// TODO: Parcialmente inútil. Era usado apenas para uma simples validação
 	@Column(name = "valor_somatorio_rubricas_complementacao_renda", nullable = true)
 	private BigDecimal valorSomatorioRubricasComplementacaoRenda;
+	
+	@Transient
+	private int qtdeTotNascEnviados;
+	@Transient
+	private BigDecimal vrTotNascEnviados;
+	@Transient
+	private int qtdeTotNascRecebidos;
+	@Transient
+	private BigDecimal vrTotNascRecebidos;
 
 }

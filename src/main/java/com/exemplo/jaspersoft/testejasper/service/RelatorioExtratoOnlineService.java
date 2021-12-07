@@ -18,12 +18,12 @@ public class RelatorioExtratoOnlineService {
 //	@Autowired
 //	private CartorioRepository cartorioRepository;
 
-	public ResponseEntity<Object> gerarRelatorioExtratoOnline(RelatorioExtratoOnlineVO valores) {
+	public ResponseEntity<Object> gerarRelatorioExtratoOnline(boolean tipoUsuario,RelatorioExtratoOnlineVO valores) {
 
 		try {
 			ExtratoMensal em = valores.getExtratoMensal();
 			System.out.println(em.getId());
-			this.teste9RelatorioExtratoOnlineReport.gerarRelatorioExtratoOnline(valores);
+			this.teste9RelatorioExtratoOnlineReport.gerarRelatorioExtratoOnline(tipoUsuario, valores);
 
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 

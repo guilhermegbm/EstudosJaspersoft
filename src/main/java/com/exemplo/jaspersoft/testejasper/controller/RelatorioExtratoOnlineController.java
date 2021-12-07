@@ -21,9 +21,9 @@ public class RelatorioExtratoOnlineController {
 	private RelatorioExtratoOnlineService relatorioExtratoOnlineService;
 
 	@PostMapping(path = "/gerarRelatorioExtratoOnline")
-	public ResponseEntity<Object> gerarRelatorioExtratoOnline(@RequestBody(required = true) RelatorioExtratoOnlineVO valores) {
+	public ResponseEntity<Object> gerarRelatorioExtratoOnline(boolean tipoUsuario, @RequestBody(required = true) RelatorioExtratoOnlineVO valores) {
 		try {
-			this.relatorioExtratoOnlineService.gerarRelatorioExtratoOnline(valores);
+			this.relatorioExtratoOnlineService.gerarRelatorioExtratoOnline(tipoUsuario, valores);
 			return new ResponseEntity<Object>("OK", HttpStatus.OK);
 		} catch (Exception e) {
 			e.printStackTrace();
