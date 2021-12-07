@@ -37,6 +37,7 @@
 	<parameter name="VALORES_PESSOA_DATA_NASCIMENTO" class="java.util.Date"/>
 	<parameter name="VALORES_PESSOA_DATA_FIM" class="java.util.Date"/>
 	<parameter name="SUB_REPORT_FECHAMENTOS_RUBRICA" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="SUB_REPORT_UNIDADE_INTERLIGADA" class="net.sf.jasperreports.engine.JasperReport"/>
 	<queryString>
 		<![CDATA[]]>
 	</queryString>
@@ -51,6 +52,11 @@
 	<field name="fechamento.fechamentosRubrica" class="java.util.List"/>
 	<field name="subReportFechamentoRubrica" class="net.sf.jasperreports.engine.JasperReport"/>
 	<field name="fechamento.tipoFechamento.tipoFechamento" class="java.lang.String"/>
+	<field name="fechamento.qtdeTotNascRecebidos" class="java.lang.Integer"/>
+	<field name="fechamento.qtdeTotNascEnviados" class="java.lang.Integer"/>
+	<field name="fechamento.vrTotNascEnviados" class="java.math.BigDecimal"/>
+	<field name="fechamento.vrTotNascRecebidos" class="java.math.BigDecimal"/>
+	<field name="fechamento.registroCivil" class="java.lang.Boolean"/>
 	<background>
 		<band height="15" splitType="Stretch"/>
 	</background>
@@ -125,10 +131,10 @@
 		</band>
 	</title>
 	<detail>
-		<band height="260" splitType="Stretch">
+		<band height="125" splitType="Stretch">
 			<property name="com.jaspersoft.studio.unit.height" value="px"/>
 			<textField>
-				<reportElement mode="Opaque" x="300" y="20" width="254" height="20" backcolor="#C8C8C8" uuid="bbfaf839-f09b-4c20-a6e4-6f6b2bd81f02">
+				<reportElement mode="Opaque" x="340" y="20" width="214" height="20" backcolor="#C8C8C8" uuid="bbfaf839-f09b-4c20-a6e4-6f6b2bd81f02">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0df53e9-402e-4375-8541-3850acbc6ef4"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -142,7 +148,7 @@
 				<textFieldExpression><![CDATA[$F{fechamento.oficial.cartorio.nome}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Opaque" x="300" y="0" width="254" height="20" backcolor="#C8C8C8" uuid="f887e025-e571-4d94-a982-f40959c128cb">
+				<reportElement mode="Opaque" x="340" y="0" width="214" height="20" backcolor="#C8C8C8" uuid="f887e025-e571-4d94-a982-f40959c128cb">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56e3fda8-87f0-4aaf-8f33-2247a98df7db"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -156,7 +162,7 @@
 				<textFieldExpression><![CDATA[$F{fechamento.oficial.cartorio.municipio}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement mode="Opaque" x="300" y="40" width="254" height="20" backcolor="#C8C8C8" uuid="33916f1e-0c79-414a-9f45-bba6a9bd24f7">
+				<reportElement mode="Opaque" x="340" y="40" width="214" height="20" backcolor="#C8C8C8" uuid="33916f1e-0c79-414a-9f45-bba6a9bd24f7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf98b9d7-dfac-4d69-a7fe-8de3381bac71"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -170,7 +176,7 @@
 				<textFieldExpression><![CDATA[$F{fechamento.oficial.tipoOficial.nome}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement mode="Opaque" x="220" y="0" width="80" height="20" backcolor="#C8C8C8" uuid="18b3ece6-3ea6-4a7a-bc87-79f5187276f4">
+				<reportElement mode="Opaque" x="270" y="0" width="70" height="20" backcolor="#C8C8C8" uuid="18b3ece6-3ea6-4a7a-bc87-79f5187276f4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="56e3fda8-87f0-4aaf-8f33-2247a98df7db"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.height" value="px"/>
@@ -183,7 +189,7 @@
 				<text><![CDATA[Municipio:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="220" y="20" width="80" height="20" backcolor="#C8C8C8" uuid="9a8b3efc-9bfc-431e-b0ca-0de2b56067b0">
+				<reportElement mode="Opaque" x="270" y="20" width="70" height="20" backcolor="#C8C8C8" uuid="9a8b3efc-9bfc-431e-b0ca-0de2b56067b0">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0df53e9-402e-4375-8541-3850acbc6ef4"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -195,7 +201,7 @@
 				<text><![CDATA[Cartorio:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement mode="Opaque" x="220" y="40" width="80" height="20" backcolor="#C8C8C8" uuid="1281ea7e-19e9-4e91-925a-17f4146eab10">
+				<reportElement mode="Opaque" x="270" y="40" width="70" height="20" backcolor="#C8C8C8" uuid="1281ea7e-19e9-4e91-925a-17f4146eab10">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf98b9d7-dfac-4d69-a7fe-8de3381bac71"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -207,7 +213,7 @@
 				<text><![CDATA[Tipo Oficial:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="0" y="230" width="60" height="30" backcolor="#C8C8C8" uuid="08f54076-f03e-47dd-8603-08b330946a89">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="0" y="90" width="60" height="30" backcolor="#C8C8C8" uuid="08f54076-f03e-47dd-8603-08b330946a89">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20e065c6-94d6-4639-af04-76ca1107b3b6"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -219,7 +225,7 @@
 				<text><![CDATA[Valor Bruto:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="60" y="230" width="80" height="30" backcolor="#C8C8C8" uuid="fec7f051-d7fa-40a8-84fb-0f239ad35a41">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="60" y="90" width="80" height="30" backcolor="#C8C8C8" uuid="fec7f051-d7fa-40a8-84fb-0f239ad35a41">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="20e065c6-94d6-4639-af04-76ca1107b3b6"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -231,7 +237,7 @@
 				<textFieldExpression><![CDATA[new java.text.DecimalFormat("R$ #,##0.00").format($F{fechamento.valorBruto})]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="140" y="230" width="60" height="30" backcolor="#C8C8C8" uuid="5a7f787a-7c93-46d1-817e-3f03727167d4">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="140" y="90" width="60" height="30" backcolor="#C8C8C8" uuid="5a7f787a-7c93-46d1-817e-3f03727167d4">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="763723c8-88e1-4e7a-8208-39aad9639cde"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -243,7 +249,7 @@
 				<text><![CDATA[Valor Recivil:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="200" y="230" width="80" height="30" backcolor="#C8C8C8" uuid="ed6e56aa-33da-430b-bf1b-79acc337969d">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="200" y="90" width="80" height="30" backcolor="#C8C8C8" uuid="ed6e56aa-33da-430b-bf1b-79acc337969d">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="763723c8-88e1-4e7a-8208-39aad9639cde"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -255,7 +261,7 @@
 				<textFieldExpression><![CDATA[new java.text.DecimalFormat("R$ #,##0.00").format($F{fechamento.valorRecivil})]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="280" y="230" width="60" height="30" backcolor="#C8C8C8" uuid="fcb0d371-dcc6-49c0-9f61-93594b8c6d99">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="280" y="90" width="60" height="30" backcolor="#C8C8C8" uuid="fcb0d371-dcc6-49c0-9f61-93594b8c6d99">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3261a433-50d0-4416-96a2-dd9b04b7bcf9"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -267,7 +273,7 @@
 				<text><![CDATA[Valor IR: ]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="340" y="230" width="80" height="30" backcolor="#C8C8C8" uuid="29c3ce5d-06eb-46c0-becb-25c9a11c3220">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="340" y="90" width="80" height="30" backcolor="#C8C8C8" uuid="29c3ce5d-06eb-46c0-becb-25c9a11c3220">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="3261a433-50d0-4416-96a2-dd9b04b7bcf9"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -279,7 +285,7 @@
 				<textFieldExpression><![CDATA[new java.text.DecimalFormat("R$ #,##0.00").format($F{fechamento.valorIR})]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="420" y="230" width="60" height="30" backcolor="#C8C8C8" uuid="de0f76a5-5d23-4fa8-9149-80db715918a7">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="420" y="90" width="60" height="30" backcolor="#C8C8C8" uuid="de0f76a5-5d23-4fa8-9149-80db715918a7">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f097ef4d-341b-42af-860a-a86a408fd6d2"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -291,7 +297,7 @@
 				<text><![CDATA[Valor Liquido:]]></text>
 			</staticText>
 			<textField>
-				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="480" y="230" width="74" height="30" backcolor="#C8C8C8" uuid="4247a94c-ef67-49cc-824a-a53944b889af">
+				<reportElement positionType="FixRelativeToBottom" mode="Opaque" x="480" y="90" width="74" height="30" backcolor="#C8C8C8" uuid="4247a94c-ef67-49cc-824a-a53944b889af">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="f097ef4d-341b-42af-860a-a86a408fd6d2"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
@@ -303,14 +309,17 @@
 				<textFieldExpression><![CDATA[new java.text.DecimalFormat("R$ #,##0.00").format($F{fechamento.valorLiquido})]]></textFieldExpression>
 			</textField>
 			<subreport>
-				<reportElement mode="Transparent" x="0" y="60" width="554" height="50" uuid="84c80642-6306-45e8-a7dc-338f7f0ef6c5">
+				<reportElement mode="Transparent" x="0" y="60" width="555" height="30" uuid="84c80642-6306-45e8-a7dc-338f7f0ef6c5">
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA["Gratuidade".equals($F{fechamento.tipoFechamento.tipoFechamento}) && ( $P{USUARIO_INTERNO} || $F{fechamento.registroCivil} )]]></printWhenExpression>
 				</reportElement>
 				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{fechamento.fechamentosRubrica})]]></dataSourceExpression>
 				<subreportExpression><![CDATA[$P{SUB_REPORT_FECHAMENTOS_RUBRICA}]]></subreportExpression>
 			</subreport>
 			<textField>
-				<reportElement mode="Opaque" x="0" y="0" width="220" height="60" backcolor="#C8C8C8" uuid="184ecbd1-d3b9-46cf-88ee-1b83e07b6b47">
+				<reportElement mode="Opaque" x="0" y="0" width="270" height="60" backcolor="#C8C8C8" uuid="184ecbd1-d3b9-46cf-88ee-1b83e07b6b47">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="bf98b9d7-dfac-4d69-a7fe-8de3381bac71"/>
 					<property name="com.jaspersoft.studio.unit.width" value="px"/>
 					<property name="com.jaspersoft.studio.unit.y" value="px"/>
@@ -323,19 +332,34 @@
 				</textElement>
 				<textFieldExpression><![CDATA["Compensação de " + $F{fechamento.tipoFechamento.tipoFechamento} + "\nPeriodo de Referência: " +  new SimpleDateFormat("MM/yyyy").format($F{fechamento.periodoReferencia})]]></textFieldExpression>
 			</textField>
-			<frame>
-				<reportElement positionType="FixRelativeToBottom" x="0" y="200" width="555" height="30" uuid="ddad465a-5e0d-4c46-8632-41ccb598a4b7"/>
-				<textField>
-					<reportElement x="0" y="0" width="100" height="30" uuid="15ad1ce3-0645-4350-9fe6-b2d7bbbf0587"/>
-					<textFieldExpression><![CDATA[$F{fechamento.tipoFechamento.tipoFechamento}]]></textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="150" y="0" width="100" height="30" uuid="bece020a-a013-4951-bf3e-f73a25bdf43b">
-						<printWhenExpression><![CDATA["Unidade Interligada".equals($F{fechamento.tipoFechamento.tipoFechamento})]]></printWhenExpression>
-					</reportElement>
-					<text><![CDATA[Static Text]]></text>
-				</staticText>
-			</frame>
+			<subreport>
+				<reportElement x="0" y="60" width="555" height="30" uuid="e36490e2-86df-400d-9392-8a18bcc9dc8f">
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<printWhenExpression><![CDATA["Unidade Interligada".equals($F{fechamento.tipoFechamento.tipoFechamento})]]></printWhenExpression>
+				</reportElement>
+				<subreportParameter name="vrTotNascRecebidos">
+					<subreportParameterExpression><![CDATA[$F{fechamento.vrTotNascRecebidos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="vrTotNascEnviados">
+					<subreportParameterExpression><![CDATA[$F{fechamento.vrTotNascEnviados}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qtdeTotNascEnviados">
+					<subreportParameterExpression><![CDATA[$F{fechamento.qtdeTotNascEnviados}]]></subreportParameterExpression>
+				</subreportParameter>
+				<subreportParameter name="qtdeTotNascRecebidos">
+					<subreportParameterExpression><![CDATA[$F{fechamento.qtdeTotNascRecebidos}]]></subreportParameterExpression>
+				</subreportParameter>
+				<dataSourceExpression><![CDATA[new net.sf.jasperreports.engine.data.JRBeanCollectionDataSource($F{fechamento.fechamentosRubrica})]]></dataSourceExpression>
+				<subreportExpression><![CDATA[$P{SUB_REPORT_UNIDADE_INTERLIGADA}]]></subreportExpression>
+			</subreport>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="60" width="554" height="30" isPrintInFirstWholeBand="true" backcolor="#F0F0F0" uuid="8afecf13-f058-41e0-b3ef-7155837dbce9">
+					<printWhenExpression><![CDATA["Gratuidade".equals($F{fechamento.tipoFechamento.tipoFechamento}) && ( !$P{USUARIO_INTERNO} && !$F{fechamento.registroCivil} )]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Nenhum registro encontrado]]></text>
+			</staticText>
 		</band>
 	</detail>
 	<summary>
@@ -367,7 +391,7 @@
 					<font fontName="Arial"/>
 					<paragraph leftIndent="5" rightIndent="5"/>
 				</textElement>
-				<textFieldExpression><![CDATA[new SimpleDateFormat("MM-yyyy").format$P{EXTRATO_MENSAL_MES_PAGAMENTO}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[new SimpleDateFormat("MM/yyyy").format$P{EXTRATO_MENSAL_MES_PAGAMENTO}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement mode="Opaque" x="80" y="60" width="95" height="30" uuid="df093142-0554-4357-86f5-546956a173bf">
