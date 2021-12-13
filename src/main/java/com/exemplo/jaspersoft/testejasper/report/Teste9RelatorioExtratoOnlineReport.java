@@ -9,7 +9,6 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 import com.exemplo.jaspersoft.testejasper.entity.Fechamento;
-import com.exemplo.jaspersoft.testejasper.entity.FechamentoRubrica;
 import com.exemplo.jaspersoft.testejasper.entity.Oficial;
 import com.exemplo.jaspersoft.testejasper.util.Util;
 import com.exemplo.jaspersoft.testejasper.vo.RelatorioExtratoOnlineVO;
@@ -17,19 +16,18 @@ import com.exemplo.jaspersoft.testejasper.vo.RelatorioExtratoOnlineVO;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import net.sf.jasperreports.engine.JasperReport;
-import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 
 @Component
 public class Teste9RelatorioExtratoOnlineReport {
 
-	public void gerarRelatorioExtratoOnline(boolean tipoUsuario,RelatorioExtratoOnlineVO valores) throws Exception {
+	public void gerarRelatorioExtratoOnline(boolean tipoUsuario, RelatorioExtratoOnlineVO valores) throws Exception {
 
 		String destino = "C:\\Users\\mariana\\Desktop\\reports_gerados\\Teste9.pdf";
 
 		String origemPai = "C:\\Users\\mariana\\Documents\\apisBk\\testejasper\\src\\main\\resources\\relatorios\\Teste9_RelatorioExtratoOnline.jrxml";
 
-		RelatorioPdfUtil.printDecompiledReportWithCustomCollectionDataSource(destino, origemPai, criaPametros(tipoUsuario, valores),
-				gerarDataSet(valores));
+		RelatorioPdfUtil.printDecompiledReportWithCustomCollectionDataSource(destino, origemPai,
+				criaPametros(tipoUsuario, valores), gerarDataSet(valores));
 
 	}
 
@@ -59,14 +57,12 @@ public class Teste9RelatorioExtratoOnlineReport {
 		for (Oficial ofic : vo.getValoresPorPessoaEMes().getOficiais()) {
 
 			for (Fechamento fec : ofic.getFechamentos()) {
-				
-				
+
 				Oficial oficAux = new Oficial();
 				oficAux.setCpf(ofic.getCpf());
 				oficAux.setCartorio(ofic.getCartorio());
 				oficAux.setTipoOficial(ofic.getTipoOficial());
-		//		oficAux.setPessoa(ofic.getPessoa());
-				
+				// oficAux.setPessoa(ofic.getPessoa());
 
 				fec.setOficial(oficAux);
 
@@ -117,11 +113,11 @@ public class Teste9RelatorioExtratoOnlineReport {
 		parametros.put("EXTRATO_MENSAL_CPF", valores.getExtratoMensal().getCpfPessoa());
 
 		parametros.put("VALORES_PESSOA_MES_NOME", valores.getValoresPorPessoaEMes().getNome());
-		
-	//	parametros.put("VALORES_PESSOA_MES_CPF", (valores.getValoresPorPessoaEMes().getCpf())   );
-		parametros.put("VALORES_PESSOA_MES_CPF", Util.addMaskCPF(valores.getValoresPorPessoaEMes().getCpf()) );
-		
-		  
+
+		// parametros.put("VALORES_PESSOA_MES_CPF",
+		// (valores.getValoresPorPessoaEMes().getCpf()) );
+		parametros.put("VALORES_PESSOA_MES_CPF", Util.addMaskCPF(valores.getValoresPorPessoaEMes().getCpf()));
+
 		parametros.put("VALORES_PESSOA_MES_RG_ORGAO_EXPEDIDOR",
 				valores.getValoresPorPessoaEMes().getRgOrgaoExpedidor());
 		parametros.put("VALORES_PESSOA_MES_RG_UF_ORGAO_EXPEDIDOR",
@@ -138,9 +134,8 @@ public class Teste9RelatorioExtratoOnlineReport {
 				valores.getValoresPorPessoaEMes().getNaturalidadeMunicipio());
 		parametros.put("VALORES_PESSOA_DATA_NASCIMENTO", valores.getValoresPorPessoaEMes().getDataNascimento());
 		parametros.put("VALORES_PESSOA_DATA_FIM", valores.getValoresPorPessoaEMes().getDataFim());
-		
+
 		parametros.put("VALORES_PESSOA_DATA_FIM", valores.getValoresPorPessoaEMes().getDataFim());
-		
 
 		return parametros;
 
