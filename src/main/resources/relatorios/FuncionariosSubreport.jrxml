@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.18.1.final using JasperReports Library version 6.18.1-9d75d1969e774d4f179fb3be8401e98a0e6d1611  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="FuncionariosSubreport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8047711a-a2ce-4e4c-a92f-cab7c6e77b75">
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="nome" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="nome"/>
+		<property name="com.jaspersoft.studio.field.label" value="nome"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="cpf" class="java.lang.String">
+		<property name="com.jaspersoft.studio.field.name" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.label" value="cpf"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<field name="salario" class="java.math.BigDecimal">
+		<property name="com.jaspersoft.studio.field.name" value="salario"/>
+		<property name="com.jaspersoft.studio.field.label" value="salario"/>
+		<property name="com.jaspersoft.studio.field.tree.path" value="funcionario"/>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<columnHeader>
+		<band height="28" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="185" height="20" uuid="70a4c25a-8651-49b3-af46-8d335f89a4db">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de2c1280-e362-4020-98e6-6cdea77f1cf1"/>
+				</reportElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="185" y="0" width="185" height="20" uuid="43deba18-1a37-48cd-8261-3c85bd358a2b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f018c22-e1c1-4cbf-a06e-939d90a22c11"/>
+				</reportElement>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="370" y="0" width="185" height="20" uuid="dacf85ec-3cc2-4523-ac7e-939988871392">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="461fd127-d8cc-4fea-b047-b90c0fdc3286"/>
+				</reportElement>
+				<text><![CDATA[Salario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="-1" y="7" width="185" height="30" uuid="d4811a05-1bd4-4c29-8a4f-a75ee43b868f">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="de2c1280-e362-4020-98e6-6cdea77f1cf1"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="184" y="7" width="185" height="30" uuid="51d00b33-23f2-4704-89f2-8d5123dc482b">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="9f018c22-e1c1-4cbf-a06e-939d90a22c11"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{cpf}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="369" y="7" width="185" height="30" uuid="c7ddd3fc-7975-4387-a4d0-a1d47bfbd873">
+					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="461fd127-d8cc-4fea-b047-b90c0fdc3286"/>
+				</reportElement>
+				<textFieldExpression><![CDATA[$F{salario}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="1" width="555" height="1" uuid="ae384df1-9d76-48ff-8d1f-52232352aa3b">
+					<property name="com.jaspersoft.studio.unit.x" value="px"/>
+					<property name="com.jaspersoft.studio.unit.y" value="px"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+			</line>
+		</band>
+	</detail>
+</jasperReport>
