@@ -22,9 +22,8 @@ public class Teste10RelatorioFuncionario {
 		String destino = "C:\\Users\\guilh\\Desktop\\relatorios\\Teste10.pdf";
 		String origem = "C:\\Users\\guilh\\Documents\\EclipseProjects\\testejasper\\src\\main\\resources\\relatorios\\Funcionarios2.jrxml";
 
-		Map<String, Object> parameters = new HashMap<String, Object>();
-		parameters.put("nome_autor", "Guilherme");
+		
 
-		RelatorioPdfUtil.printDecompiledReportWithCustomCollectionDataSource(destino, origem, parameters, funcionarios);
+		RelatorioPdfUtil.printDecompiledReportWithCustomCollectionDataSource(destino, origem, null, funcionarios);
 	}
 }
